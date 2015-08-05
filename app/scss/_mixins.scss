@@ -1,0 +1,105 @@
+@mixin clearfix {
+
+    &:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin border-radius ($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
+}
+
+@mixin animate ($time) {
+   -moz-transition: all $time ease;
+  -webkit-transition: all $time ease;
+  -o-transition: all $time ease;
+  transition: all $time ease;
+}
+
+@mixin zoomTranz($zoom) {
+  -moz-transform: scale($zoom); /* эффект трансформации для Firefox до версии 16.0 */
+  -webkit-transform: scale($zoom); /* эффект трансформации для Chrome до версии 26.0, Safari, Android и iOS */
+  -o-transform: scale($zoom); /* эффект трансформации для Opera до версии 12.10 */
+  -ms-transform: scale($zoom); /* эффект трансформации для IE 9.0 */
+  transform: scale($zoom); /* эффект трансформации для других браузеров */
+
+}
+
+
+@mixin rotate ($rotate) {
+
+     -moz-transform: rotate($rotate); /* Для Firefox */
+    -ms-transform: rotate($rotate); /* Для IE */
+    -webkit-transform: rotate($rotate); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate($rotate); /* Для Opera */
+    transform: rotate($rotate);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin shadowTop {
+  -webkit-box-shadow: 0px -5px 1px 0px rgba(50, 50, 50, 0.83);
+  -moz-box-shadow:    0px -5px 1px 0px rgba(50, 50, 50, 0.83);
+  box-shadow:         0px -5px 1px 0px rgba(50, 50, 50, 0.83);
+}
+
+@mixin shadowBottom {
+  -webkit-box-shadow: 0px 5px 1px 0px rgba(50, 50, 50, 0.83);
+  -moz-box-shadow:    0px 5px 1px 0px rgba(50, 50, 50, 0.83);
+  box-shadow:         0px 5px 1px 0px rgba(50, 50, 50, 0.83);
+}
+
+@mixin centered {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin:auto;
+} 
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+
+@mixin inline-block ($align) {
+	display: inline-block;
+	vertical-align: $align;
+
+}
+
+
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+

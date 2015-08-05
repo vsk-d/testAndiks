@@ -1,0 +1,53 @@
+html { height: 100%; }
+
+body {
+	height: 100%;	
+	background: url('../img/background.png');
+}
+
+/* прибьём футер к низу*/
+.wrapper{
+	position:relative;
+	min-height:100%;
+	height:auto!important;
+	overflow:hidden;
+
+	&:after {
+		content: "";
+		height: 50px;
+		display: block;
+	}
+}
+
+.hide {
+	position: absolute;
+	left:-9999px;
+}
+
+// основные стили
+.main-content {
+	width: 1200px;
+	margin: 0 auto;
+	@include clearfix;
+}
+
+
+
+// футер прибитый к низу
+.page-footer{
+	height: 50px;
+	margin-top: -50px;
+	text-align: center;
+	background-color: rgba(35, 31, 32, 0.7); 	
+	border-top: 1px solid white;
+	@include shadowTop;
+}
+
+.page-footer__text {
+	@include inline-block (middle);	
+	font-family: 'FiraSans';
+	color:  $font-color;
+	font-size: 12px; 
+	line-height: 24px;
+	font-weight: 300;
+}
