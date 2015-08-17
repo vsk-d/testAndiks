@@ -206,12 +206,70 @@ window.addEventListener(event, callback);
 
          }
 
+// ======== Модуль Слайдера ==========
+// ===================================
+
+		function _slider() {
+
+				console.log("sadfasd");
+
+          
+			var lasteX = 0,
+          releW =document.getElementById("rele").offsetWidth;
+          curentPosDef = 50,
+          curentPos = 50,
+          slWidth = document.getElementById("slider").offsetWidth;
+  			var sl = document.getElementById("slider");
+
+  			sl.addEventListener("mousedown", function(event) {
+    			if (event.which == 1) {
+      			lasterX = event.pageX;
+      			addEventListener("mousemove", _moved);
+      			event.preventDefault(); // Запретим выделение
+    		}
+  		});
+  			function _moved(event) {
+   			 if (event.which != 1) {
+      			removeEventListener("mousemove", _moved);
+   			 } else {
+            var $rele = $('#rele'),
+                $leftSl = $('#slide__left'),
+                $rightSl = $('#slide__right');
+   			 		var dist = event.pageX - lasteX;
+      				var newPos = Math.round(((lasteX + dist) - (curentPos * 3 ))  / 2);
+      				if (newPos > 100) { newPos = 100;}
+              if (newPos < 0) { newPos = 0;}
+
+              $rele.css({ left: newPos + '%'});
+              
+              
+
+              if (newPos<curentPos) {
+                    console.log ("<<<")
+                $rightSl.css({ left: newPos + '%'});
+                $rightSl.css({ width: (curentPos - newPos) + '%'});
+              } else {
+                console.log (">>>")
+                $rele.css({ left: (newPos - (releW/3)) + '%'});
+                $rightSl.css({ left: curentPosDef + '%'});
+                $rightSl.css({ left: (newPos - curentPos) + '%'});
+                $rightSl.css({ width: ((curentPos + newPos) - 100) + '%'}); }
+
+              
+
+      				lasteX = newPos;
+
+      			}
+  			}
+
+
+         }
 
 			return {
 
 		init : function () {
 			this.setUpListeners();
-			window.console.log ('input init')
+			window.console.log ('app init')
 		},
 
 		setUpListeners : function () {
@@ -221,7 +279,9 @@ window.addEventListener(event, callback);
 			$('#cont').mouseenter(_scrollInput);
 			$('#cont').mousedown(_mouseInput);
 			$('#percent').on('keypress', _keyPressNumber);
-			$('#percent').on('change', _enterInput); 
+			$('#percent').on('change', _enterInput);
+			$('#rele').mousedown(_slider);
+
 			}
 	};
 }());
