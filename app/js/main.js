@@ -241,26 +241,20 @@ window.addEventListener(event, callback);
               if (newPos < 0) { newPos = 0;}
 
               $rele.css({ left: newPos + '%'});
+
+              if (newPos>93) {
+                  console.log (">>>");
+                  $rele.css({ left: Math.abs((newPos - releW/3)) + '%'});
+                }
               
               $rightSl.css({ left: newPos + '%'});
               $rightSl.css({ width: Math.abs((newPos - (curentPosDef*2))) + '%'}); 
-              
-
-              // if (newPos<curentPosDef) {
-              //       console.log ("<<<")
-              //   $rightSl.css({ width: newPos + '%'});
-              // } else {
-              //   console.log (">>>")
-              //   $rightSl.css({ width: newPos + '%'}); }
-
-              
 
       				lasteX = newPos;
-
+              $('.slider__input.hide').attr('val',lasteX);
+              console.log(lasteX);
       			}
-  			}
-
-
+    			}
          }
 
 			return {
