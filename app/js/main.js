@@ -242,18 +242,16 @@ window.addEventListener(event, callback);
 
               $rele.css({ left: newPos + '%'});
               
+              $rightSl.css({ left: newPos + '%'});
+              $rightSl.css({ width: Math.abs((newPos - (curentPosDef*2))) + '%'}); 
               
 
-              if (newPos<curentPos) {
-                    console.log ("<<<")
-                $rightSl.css({ left: newPos + '%'});
-                $rightSl.css({ width: (curentPos - newPos) + '%'});
-              } else {
-                console.log (">>>")
-                $rele.css({ left: (newPos - (releW/3)) + '%'});
-                $rightSl.css({ left: curentPosDef + '%'});
-                $rightSl.css({ left: (newPos - curentPos) + '%'});
-                $rightSl.css({ width: ((curentPos + newPos) - 100) + '%'}); }
+              // if (newPos<curentPosDef) {
+              //       console.log ("<<<")
+              //   $rightSl.css({ width: newPos + '%'});
+              // } else {
+              //   console.log (">>>")
+              //   $rightSl.css({ width: newPos + '%'}); }
 
               
 

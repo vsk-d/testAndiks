@@ -615,7 +615,7 @@ input#percent {
   position: relative;
   width: 100%; }
 
-#slide__left {
+#slide {
   display: inline-block;
   position: absolute;
   float: left;
