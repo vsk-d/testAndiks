@@ -129,7 +129,7 @@ if (isNaN(val)) {
          function _scrollInput() {
          	console.log('mouseenter');
   			
-var wheel = document.getElementById('wheel');
+        var wheel = document.getElementById('wheel');
 
 
 function report(ammout) {
@@ -146,7 +146,7 @@ function report(ammout) {
     						document.getElementById("perc__main").innerHTML = newVal;
     						_var.currentVal = newVal;
 
-    						if (ammout < 1) { _var.currentVal = 1;}
+    						if (_var.currentVal < 1) { _var.currentVal = 1;}
 						};
 }
 
@@ -188,7 +188,7 @@ window.addEventListener(event, callback);
    			 } else {
    			 		var lastX = 0;
       				var dist = event.pageX - lastX;
-      				var newWidth = Math.round( (Math.max(10, rect.offsetWidth + dist) - 1000) / 10) - 18;
+      				var newWidth = Math.abs(Math.round( (Math.max(10, rect.offsetWidth + dist) - 1000) / 10) - 18);
       				if (newWidth > 100) { newWidth = 100;}
 
       				var     $circle = $('#svg #bar'),
