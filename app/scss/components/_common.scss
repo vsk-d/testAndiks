@@ -23,6 +23,7 @@ body {
 	@include clearfix;
 }
 
+// стили чекбокса
 .checkbox {
 	@include clearfix;
 	cursor: pointer;
@@ -72,4 +73,68 @@ body {
    @include animate(0.3s);
 }
 
+// Стили интпута
 
+.input {
+cursor: pointer;
+  position: absolute;
+  left: 116px;
+  top: 139px;
+}
+
+
+#svg circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #494949;
+  stroke-width: 10px;
+}
+#svg #bar {
+	stroke-dashoffset: 376.99;
+  stroke: #7cffe2;
+}
+#cont {
+  display: block;
+  height: 130px;
+  width: 130px;
+  border-radius: 100%;
+  position: relative;
+}
+
+
+input#percent {
+	position: absolute;
+	border: none;
+	background: none;
+	outline: none;
+	height: 39px;
+    width: 70px;
+    top: 46px;
+    left: 40px;
+	z-index: 50;
+	font-size: 48px;
+	@include opacity(0);
+}
+
+#cont__perc {
+	position: absolute;
+	width: 100px;
+	height: 40px;
+	top: 49px;
+	left: 20px;
+	text-align: center;
+	font-family:"Milford Condensed Bold";
+}
+#perc__main {
+	position: relative;
+	font-size: 48px;
+	text-align: center;
+
+	
+}	
+
+.perc_sup {
+	position: absolute;
+	font-size: 22px;
+    top: 11px;;
+}

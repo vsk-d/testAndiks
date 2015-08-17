@@ -11,6 +11,15 @@ html(lang="ru-Ru")
 					span.checkbox__on ON
 					span.checkbox__off OFF
 					input.checkbox__input.hide(type="checkbox" name="checkbox")
+				.input
+					div#cont(data-pct="0")
+						svg#svg(width="140" height="140" viewport="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg")
+							circle(r="60" cx="70" cy="70" fill="transparent" stroke-dasharray="376.99" stroke-dashoffset="0")
+							circle#bar(r="60" cx="70" cy="70" fill="transparent" stroke-dasharray="376.99" stroke-dashoffset="0")
+						div#cont__perc 
+							span#perc__main 0  
+							sup.perc_sup %
+					input#percent(name="percent" val="0")
 
 	include includes/footer.jade
 
